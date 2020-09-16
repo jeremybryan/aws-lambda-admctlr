@@ -11,6 +11,7 @@
 ##### Lambda
 * Create the trust policy for the lambda
      
+     NOTE: If you have multiples AWS Cli profiles be sure to add the --profile <profile name> argument 
      ```
      aws iam create-role --role-name adminctlr --assume-role-policy-document file://trust-policy.json
     ```
@@ -28,10 +29,13 @@
     in the zip file.
     Note: The role arn below needs to be replaced with the ARN for the role created above.
     ```
-    aws lambda create-function --function-name my-function \
+    aws lambda create-function --function-name adminctlr \
     --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \
     --role arn:aws:iam::123456789012:role/adminctlr
     ```
+    The shell script `createFunction.sh` can be used for the above. It takes 2 arguments, the first being an AWS
+    cli profile name and the second the ARN for the `--role` parameter.
+    
     Then the function can be tested:
     ```
     aws lambda invoke --function-name adminctlr out --log-type Tail  

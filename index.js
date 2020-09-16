@@ -36,3 +36,23 @@ exports.handler = async function(event, context) {
   if (!found) {
     admissionResponse.allowed = true;
   }
+
+  var admissionReview = {
+    response: admissionResponse
+  };
+
+  var response = {
+        "statusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "isBase64Encoded": false,
+        "body": JSON.stringify(admissionReview)
+    }
+
+  return response;
+}
+
+var serialize = function(object) {
+  return JSON.stringify(object, null, 2)
+}
