@@ -110,4 +110,7 @@ if [[ "$2" == "clean" ]]; then
 
   echo "Deleting role"
   aws --profile "$PROFILE" iam delete-role --role-name adminctlr
+
+  echo "Deleting function archive"
+  rm function.zip
 fi
