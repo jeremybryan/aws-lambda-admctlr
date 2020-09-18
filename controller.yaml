@@ -15,4 +15,4 @@ webhooks:
           - pods
     failurePolicy: Fail
     clientConfig:
-      url: "https://np2fkaua6h.execute-api.us-gov-west-1.amazonaws.com/validate"
+      url: "https://<api_id>.execute-api.<region>.amazonaws.com/validate"
