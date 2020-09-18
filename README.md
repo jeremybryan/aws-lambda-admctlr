@@ -50,7 +50,7 @@
 
     The arn below needs to be the arn of the lambda function 
     ```
-        aws apigatewayv2 create-api --name validate-api --protocol-type HTTP --target arn:aws:lambda:us-east-2:123456789012:function:function-name
+    aws apigatewayv2 create-api --name validate-api --protocol-type HTTP --target arn:aws:lambda:us-east-2:123456789012:function:function-name
   
     ```
   
@@ -86,6 +86,15 @@
     kubectl apply -f controller.yaml  
   ```
      
+The script `provision.sh` provides a simplistic automation of the above steps. 
+```
+./provision.sh <aws cli profile> <empty or clean>
+```
+The first argument is the aws cli profile you want to use (default or other named profile)
+The second argument is empty or `clean` in the case when you want to clean up what's been provisioned
+
 Testing and Verifying
 -
+```
 curl --header "Content-Type: application/json" --request POST --data @sample.json https://<API_ID>.execute-api.us-gov-west-1.amazonaws.com/validate
+```
