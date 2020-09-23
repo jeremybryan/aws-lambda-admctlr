@@ -101,3 +101,19 @@ Testing and Verifying
 ```
 curl --header "Content-Type: application/json" --request POST --data @sample.json https://<API_ID>.execute-api.us-gov-west-1.amazonaws.com/validate
 ```
+#### ValidationWebhook
+`controller.yaml` contains the configuration required to deploy a validation webhook to kubernetes. Line 18 is the line
+that would need to be updated prior to provisioning to Kubernetes, this line would need to be updated with the `output` 
+line from the terraform provisioing process it will look like:
+ 
+ `validating_webhook_url = https://XXXXXXXXXX.execute-api.us-gov-west-1.amazonaws.com/prod`
+
+
+The function defined index.js is checking for environment variables configured in a container deployment yaml. If the 
+function finds an env variable, the deployment is failed. This could be tested in the following way:
+
+Successful Deployment
+ Run `kubectl run nginx --image=nginx` and observe the deployment completes successfully.
+
+Denied Deployment 
+ Run `kubectl run nginx-with-env --image=nginx --env="SOMEVALUE=fail"` and observe the deployment is denied.
