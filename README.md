@@ -1,5 +1,8 @@
 ### AWS Lambda Admission Controller Example
 
+There are two approaches here, the shell scripted approach and the Terraform provisioned approach.
+The Terraform approach exists in the `terraform` branch.
+
 #### Key Components 
 
 * NodeJS based (or any language) based Lambda to serve as the admission controller webhook
