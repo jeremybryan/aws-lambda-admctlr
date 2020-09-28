@@ -92,7 +92,7 @@ if [[ "$2" != "clean" ]]; then
   --function-name "$FUNCTARN" --principal apigateway.amazonaws.com --source-arn "$EXECUTE_API"
 
   echo "EndPointApi to call"
-  aws --profile tapestry apigatewayv2 get-api --api-id "$API_ID" | jq -r .ApiEndpoint
+  aws --profile "$PROFILE" apigatewayv2 get-api --api-id "$API_ID" | jq -r .ApiEndpoint
 
 fi
 

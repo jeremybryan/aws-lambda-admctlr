@@ -3,7 +3,7 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: admincontroller
 webhooks:
-  - name: admincontroller.tapestry.com
+  - name: admincontroller.jbryan.com
     rules:
       - apiGroups:
           - ""
@@ -15,4 +15,4 @@ webhooks:
           - pods
     failurePolicy: Fail
     clientConfig:
-      url: "https://<api_id>.execute-api.<region>.amazonaws.com/validate"
+      url: "https://<FILL IN>..execute-api.us-east-1.amazonaws.com/validate"
