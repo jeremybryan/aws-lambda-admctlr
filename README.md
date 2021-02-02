@@ -21,7 +21,7 @@
   
   Simply run `./buildLambda.sh` to provision.
   
-  To destroy, run `terraform destry --auto-approve`
+  To destroy, run `terraform destroy --auto-approve`
   
 #### Testing and Verifying
 The terraform scripts has been instrumented with a validate test to ensure the enpoint is working properly. It performs 
